@@ -2,14 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXsrfConfiguration } from '@angular/common/http';
 import { MenuNavigationComponent } from './layouts/menu-navigation/menu-navigation.component';
 import { MenuAppComponent } from './layouts/menu-app/menu-app.component';
+import { MessageValidationComponent } from './components/message-validation/message-validation.component';
 
 @NgModule({
-  declarations: [MenuNavigationComponent, MenuAppComponent],
+  declarations: [
+    MenuNavigationComponent,
+    MenuAppComponent,
+    MessageValidationComponent,
+  ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(),
+    // withXsrfConfiguration({
+    //   cookieName: 'csrftoken',
+    //   headerName: 'X-CSRFToken',
+    // })
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -17,6 +28,7 @@ import { MenuAppComponent } from './layouts/menu-app/menu-app.component';
     RouterModule,
     MenuNavigationComponent,
     MenuAppComponent,
+    MessageValidationComponent,
   ],
 })
 export class SharedModule {}

@@ -10,11 +10,11 @@ export class AppComponent implements OnInit {
   title = 'bcaf-0409';
 
   ngOnInit(): void {
-    Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
-      icon: 'error',
-      confirmButtonText: 'Cool',
-    });
+    // Swal.fire({
+    //   title: 'Error!',
+    //   text: 'Do you want to continue',
+    //   icon: 'error',
+    //   confirmButtonText: 'Cool',
+    // });
   }
 }

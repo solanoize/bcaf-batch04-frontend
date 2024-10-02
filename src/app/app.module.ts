@@ -10,9 +10,11 @@ import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
 import { GithubModule } from './github/github.module';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
+import { DocsModule } from './docs/docs.module';
 
 const MODULES = {
-  IMPORTANT: [AdminModule],
+  IMPORTANT: [AuthModule, AdminModule, DocsModule],
   NO_MANDATORY: [GithubModule],
 };
 
@@ -24,7 +26,6 @@ const MODULES = {
     NgbModule,
     FontAwesomeModule,
     CoreModule,
-    HomeModule,
     ...MODULES.IMPORTANT,
     SharedModule,
     ...MODULES.NO_MANDATORY,

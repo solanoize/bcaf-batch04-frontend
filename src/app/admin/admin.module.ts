@@ -6,16 +6,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RightsComponent } from './pages/rights/rights.component';
 import { UserComponent } from './pages/user/user.component';
 
-
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    RightsComponent,
-    UserComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule
-  ]
+  declarations: [DashboardComponent, RightsComponent, UserComponent],
+  imports: [CommonModule, AdminRoutingModule],
 })
-export class AdminModule { }
+export class AdminModule {}
