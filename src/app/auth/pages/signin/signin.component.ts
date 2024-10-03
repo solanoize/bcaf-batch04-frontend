@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../../core/services/authentication.ser
 import { IToken } from '../../../core/interfaces/i-token';
 import { catchError } from 'rxjs';
 import { Router } from '@angular/router';
+import { ISignin } from '../../../core/interfaces/i-signin';
 
 @Component({
   selector: 'app-signin',
@@ -16,6 +17,7 @@ export class SigninComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
+
     private router: Router
   ) {
     this.form = this.formBuilder.group({
@@ -33,8 +35,13 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
+      let payload = {
+        username: this.form.value.username,
+        password: this.form.value.password,
+      };
+
       this.authenticationService
-        .signIn(this.form.value)
+        .signIn(payload)
         .pipe(catchError(this.authenticationService.baseHttp.handleError))
         .subscribe((resp: IToken) => {
           this.authenticationService.sessionStart();

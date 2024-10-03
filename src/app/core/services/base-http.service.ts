@@ -38,6 +38,7 @@ export class BaseHttpService {
         });
       }
     }
+
     // Return an observable with a user-facing error message.
     return throwError(
       () => new Error(`Something bad happened; please try again later.`)
