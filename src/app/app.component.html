@@ -1,0 +1,7 @@
+<!-- XSS Attach -->
+<a href="javascript:alert(\'Crash Landing on You stinks!\')"
+  >Click to win a free prize!</a
+>
+
+<!-- Sanitizer and trusting value -->
+<div [innerHTML]="sanitizedComment">Hello</div>

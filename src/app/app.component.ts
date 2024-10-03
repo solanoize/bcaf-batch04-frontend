@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,5 +17,14 @@ export class AppComponent implements OnInit {
       icon: 'error',
       confirmButtonText: 'Cool',
     });
+  }
+
+  userComment: string = '<script>alert("XSS Attack!");</script>';
+  sanitizedComment: SafeHtml;
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.sanitizedComment = this.sanitizer.bypassSecurityTrustHtml(
+      this.userComment
+    );
   }
 }
